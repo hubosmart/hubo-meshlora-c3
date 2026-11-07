@@ -1,0 +1,2 @@
+# Bring-up probe (debug builds only; layered after sdkconfig.rev2gps.defaults)
+CONFIG_HUBO_HW_PROBE=y

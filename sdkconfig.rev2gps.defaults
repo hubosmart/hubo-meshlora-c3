@@ -1,0 +1,6 @@
+# MeshLoRa GNSS variant: E22-x00M22S, RXEN on GPIO0, GPIO2 = GPS_EN_N
+CONFIG_HUBO_E22_RXEN_GPIO=0
+CONFIG_HUBO_GPS_EN_N_GPIO=2
+# For the E22-400M22S (SX1268) the compatibility profile is off; SX1262-class modules need it on (set to y and rebuild).
+# CONFIG_HUBO_E22_SX1262_COMPAT is not set
+CONFIG_HUBO_E22_SX1262_COMPAT=n

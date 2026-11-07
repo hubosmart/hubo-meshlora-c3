@@ -1,0 +1,18 @@
+menu "Hubo companion transport"
+    choice HUBO_TRANSPORT
+        prompt "Active companion transport"
+        default HUBO_TRANSPORT_USB
+        config HUBO_TRANSPORT_USB
+            bool "USB Serial/JTAG"
+        config HUBO_TRANSPORT_BLE
+            bool "NimBLE peripheral"
+            depends on BT_NIMBLE_ENABLED
+    endchoice
+    config HUBO_BLE_ATT_TRACE
+        bool "Trace BLE ATT response boundaries"
+        depends on HUBO_TRANSPORT_BLE
+        default n
+        help
+            Log ATT opcodes and SDK return codes only, without message bodies
+            or bonding keys. Enable temporarily for reconnect diagnostics.
+endmenu

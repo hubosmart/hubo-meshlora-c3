@@ -1,0 +1,23 @@
+menu "Hubo E22 radio"
+    config HUBO_E22_SX1262_COMPAT
+        bool "Use the measured SX1262-compatible E22 profile"
+        default n
+        help
+            Enable only for an E22-400M30S verified to report SX1261
+            and pass the SX1262-compatible receive probe. The module
+            band and chip power limits still apply. Disabled selects SX1268.
+
+    config HUBO_E22_RXEN_GPIO
+        int "GPIO wired to the E22 RXEN pin"
+        default 2
+        help
+            The standard board wires RXEN to GPIO2. The GNSS board
+            moves RXEN to GPIO0 and repurposes GPIO2 as GPS_EN_N.
+
+    config HUBO_GPS_EN_N_GPIO
+        int "GPIO wired to the active-low GNSS power switch (-1 = none)"
+        default -1
+        help
+            GNSS board: GPIO2 = GPS_EN_N, low powers the GNSS. The pin is driven high at
+            start-up (GNSS off); the GNSS driver powers it on when the "gps" custom variable is 1.
+endmenu

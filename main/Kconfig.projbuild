@@ -1,0 +1,9 @@
+menu "Hubo hardware bring-up"
+    config HUBO_HW_PROBE
+        bool "Run the GNSS board bring-up probe at boot (debug builds only)"
+        default n
+        help
+            After the mesh task starts, powers the GNSS (GPS_EN_N low), tries to talk to it over
+            UART1 (GPIO20 RX / GPIO21 TX) and stores the result in the global g_hw_probe, which a
+            JTAG debugger reads. Not for release builds.
+endmenu
